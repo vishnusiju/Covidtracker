@@ -1,0 +1,331 @@
+<section id="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-md fixed-top">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-bar">
+            <span class="navbar-toggler-icon" style="color: purple">&#9776;</span>
+          </button>
+
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-home" style="font-size: 1em; color: purple;"></i>
+          </a>
+
+          <div class="collapse navbar-collapse" id="navigation-bar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="#statistic">STATISTICS</a></li>
+              <li class="nav-item"><a class="nav-link" href="#footer">CONTACT</a></li>
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="h1-title">[ COVID-19 ]</h1>
+        <p class="text-center">
+          Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+          Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="statistic">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col text-left">
+        <h2>STATISTIC</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center mb-3">
+        <form>
+          <div class="form-group">
+            <select (change)="countryChanged($event.target.value)" class="form-control" id="country">
+              <option selected value="global">Global</option>
+              <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 md-3">
+        <div class="card card-infected">
+          <div class="card-body">
+            <h3 class="card-title">INFECTED</h3>
+            <!-- <p class="card-text" [CountUp]="data.confiremd">{{data.confiremd | number}}</p> -->
+            <p>{{data.lastupdate | date:'longDate'}}</p>
+            <p>Number of active cases of COVID-19</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 md-3">
+        <div class="card card-recovered">
+          <div class="card-body">
+            <h3 class="card-title">RECOVERED</h3>
+            <!-- <p class="card-text" [countUp]="data.recovered">{{data.recovered | number}}</p> -->
+            <p>{{data.lastupdate | date:'longDate'}}</p>
+            <p>Number of recovered cases of COVID-19</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 md-3">
+        <div class="card card-deaths">
+          <div class="card-body">
+            <h3 class="card-title">DEATHS</h3>
+            <!-- <p class="card-text" [countUp]="data.deaths">{{data.deaths | number}}</p> -->
+            <p>{{data.lastupdate | date:'longDate'}}</p>
+            <p>Number of deaths cases of COVID-19</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="graph">
+  <div class="container">
+    <div class="row">
+      <div class="col chart-wrapper">
+        <canvas *ngIf="global" baseChart
+          [chartType]="lineChartType"
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+        >
+        </canvas>
+        <canvas *ngIf="!global" baseChart
+          [chartType]="barChartType"
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6">
+        <h3>About me</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae accusantium quas quaerat praesentium delectus veritatis voluptatibus aliquam odio deserunt id unde, culpa quasi, laboriosam provident ipsum, tempore dolores eum iusto.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat libero magnam molestias consectetur? Maxime fugit placeat tenetur nam? Quisquam voluptates exercitationem non natus sapiente magni similique placeat corrupti impedit blanditiis.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <h3>Keep in touch</h3>
+        <ul class="list-unstyled">
+          <li><p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong> Location, Street, Code</p></li>
+          <li><p><strong><i class="fas fa-envelope"></i> Email:</strong> <a href="#"> info@infomail.com</a></p></li>
+          <li><p><strong><i class="fas fa-phone"></i> Phone:</strong> +01 123 45 678</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <button type="button" class="btn btn-info">Button</button>
+<section id="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <nav class="navbar navbar-expand-md fixed-top">
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-bar">
+            <span class="navbar-toggler-icon" style="color: purple">&#9776;</span>
+          </button>
+
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-home" style="font-size: 1em; color: purple;"></i>
+          </a>
+
+          <div class="collapse navbar-collapse" id="navigation-bar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="#statistic">STATISTICS</a></li>
+              <li class="nav-item"><a class="nav-link" href="#footer">CONTACT</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="h1-title">[ COVID-19 ]</h1>
+        <p class="text-center">
+          Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+          Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="statistic">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col text-left">
+        <h2>STATISTIC</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center md-3">
+        <form>
+          <div class="form-group">
+            <select (change)="countryChanged($event,target.value)" class="form-control" id="country">
+              <option selected value="global">Global</option>
+              <option *ngFor="let country of countries" value="{{country}}">{{country}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="col text-control" id="country">
+        <option selected value="global">Global</option>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 md-3">
+        <div class="card card-infected">
+          <div class="card-body">
+            <h3 class="card-title">INFECTED</h3>
+            <P class="card-text">{{data.confiremd | number}}</P>
+            <!-- <p>{{data.lastupdate | data:'longData'}}</p> -->
+            <!-- <p>Number of active cases of COVID-19</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 md-3">
+        <div class="card card-recovered">
+          <div class="card-body">
+            <h3 class="card-title">RECOVERED</h3>
+            <P class="card-text">{{data.recovered | number}}</P>
+            <!-- <p>{{data.lastupdate | data:'longData'}}</p> -->
+            <!-- <p>Number of recovered cases of COVID-19</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 md-3">
+        <div class="card card-deaths">
+          <div class="card-body">
+            <h3 class="card-title">DEATHS</h3>
+            <P class="card-text">{{data.deaths | number}}</P>
+            <!-- <p>{{data.lastupdate | data:'longData'}}</p> -->
+            <!-- <p>Number of deaths cases of COVID-19</p> -->
+          <!-- </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="graph">
+  <div class="container">
+    <div class="row">
+      <div class="col chart-wrapper">
+        <canvas>
+          [chartType]="lineChartType"
+          [datasets]="lineChartsData"
+          [labels]="lineChartLabels"
+        </canvas> -->
+      <!-- </div>
+    </div>
+  </div>
+</section>
+
+<section id="footer"> --> -->
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6">
+        <h3>About me</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae accusantium quas quaerat praesentium delectus veritatis voluptatibus aliquam odio deserunt id unde, culpa quasi, laboriosam provident ipsum, tempore dolores eum iusto.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat libero magnam molestias consectetur? Maxime fugit placeat tenetur nam? Quisquam voluptates exercitationem non natus sapiente magni similique placeat corrupti impedit blanditiis.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-6"> -->
+        <!-- <h3>Keep in touch</h3>
+        <ul class="list-unstyled">
+          <li><p><strong><i class="fas fa-map-marker-alt"></i> Address:</strong> Location, Street, Code</p></li>
+          <li><p><strong><i class="fas fa-envelope"></i> Email:</strong> <a href="#"> info@infomail.com</a></p></li>
+          <li><p><strong><i class="fas fa-phone"></i> Phone:</strong> +01 123 45 678</p></li>
+        </ul>
+      </div>
+    </div>
+  </div> -->
+<!-- </section> --> -->
+ -->
