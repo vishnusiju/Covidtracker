@@ -1,1 +1,1 @@
-# Covidtracker
+# Covidtracker-Angular
